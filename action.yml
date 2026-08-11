@@ -1,0 +1,30 @@
+name: z.ai Code Review
+description: Post an advisory z.ai review to a pull request without checking out PR code.
+author: pixelmord
+
+inputs:
+  zai-api-key:
+    description: z.ai API key. An empty value cleanly skips the review.
+    required: false
+  model:
+    description: z.ai model to use for the review.
+    default: glm-5.2
+  prompt-path:
+    description: Base-ref path to optional repository review guidance.
+    default: .github/zai-review-prompt.md
+  max-diff-chars:
+    description: Maximum characters of selected patch content sent for review.
+    default: "100000"
+  exclude-patterns:
+    description: Comma-separated patterns that extend default excluded files; ! re-includes a default.
+    default: ""
+
+outputs:
+  outcome:
+    description: Terminal review outcome.
+  review-url:
+    description: URL of the review posted during this run, or empty when none was posted.
+
+runs:
+  using: node24
+  main: dist/index.js

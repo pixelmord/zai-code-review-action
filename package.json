@@ -1,0 +1,41 @@
+{
+  "name": "zai-code-review-action",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsc --pretty",
+    "bundle": "ncc build lib/main.js --out dist --source-map",
+    "all": "npm run test && npm run build && npm run bundle",
+    "check-dist": "npm run bundle && git diff --exit-code -- dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelmord/zai-code-review-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/pixelmord/zai-code-review-action/issues"
+  },
+  "homepage": "https://github.com/pixelmord/zai-code-review-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@vercel/ncc": "^0.38.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  }
+}
