@@ -46,6 +46,12 @@ means "not a usable finding", unanchored means "a usable finding with nowhere to
 One execution of the action against one pull request at one head commit. A pull request accumulates
 runs as it is pushed to.
 
+## Run outcome
+
+The action's terminal classification of a run for downstream automation. It describes whether the
+review was completed, skipped, unavailable, or failed; it is distinct from the findings a completed
+review reports.
+
 ## Reconciliation
 
 Deciding, on a run after the first, which findings from the previous run still apply. Produces
