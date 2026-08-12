@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/pixelmord/zai-code-review-action#readme",
   "dependencies": {
-    "@actions/core": "^1.11.1"
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

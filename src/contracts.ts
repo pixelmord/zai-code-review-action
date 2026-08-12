@@ -1,13 +1,32 @@
-export interface PullRequestContext {
-  readonly owner: string
-  readonly repository: string
-  readonly pullNumber: number
+export interface PullRequest {
+  readonly title: string
+  readonly body: string
+  readonly diff: string
+}
+
+export interface ReviewComment {
+  readonly body: string
+  readonly path: string
+  readonly line: number
+  readonly side: 'RIGHT'
+}
+
+export interface ReviewRequest {
+  readonly body: string
+  readonly event: 'COMMENT'
+  readonly comments: readonly ReviewComment[]
 }
 
 export interface ReviewGateway {
-  getPullRequestContext(): Promise<PullRequestContext>
+  getPullRequest(): Promise<PullRequest>
+  createReview(review: ReviewRequest): Promise<{ readonly url: string }>
+}
+
+export interface ModelRequest {
+  readonly model: string
+  readonly prompt: string
 }
 
 export interface ReviewModel {
-  complete(prompt: string): Promise<string>
+  complete(request: ModelRequest): Promise<string>
 }
